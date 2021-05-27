@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Qr-scanner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cryptico/0.0.1343522940/cryptico.min.js"> </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+  </head>
+
+  <body style="background-color: rgb(241, 237, 237);" >
+  <div class="mr">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top  " style="background-color:indigo;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="img/navbrand1.png"width="30" width="30">
+          QR-Scanner
+        </a>
+        
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link " href="contact.html" >Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+          </div>        
+    
+                 
+            <div class="col-12 shadow d-flex justify-content-center" style="background-image:url('https://res.cloudinary.com/dikyvlzxd/image/upload/v1621441533/computer-security-authentication-authorization-security-pc-computer-desktop_jjgt57.jpg'); background-size:cover;" >
+              <div class="card mr  shadow text-center   p-3 d-flex justify-content-center  " style="background-image:url('https://res.cloudinary.com/dikyvlzxd/image/upload/v1621444499/f6b2afe8f956c9f417f5d4556ca2a984_sscbzd.jpg'); background-size:cover;"  >
+                  <h1 class="h1">Sign Up </h1>
+                    <div class="matter " >
+                        <form name="regform">
+                            <label for="Name ">Name :</label>
+                            <input class="pla" id="Name" type="text" name="Name" placeholder="Enter your Name" required><br>
+                            <span id="Namepart" class="err"></span>
+                            <br>
+                           <label for="E-mail">E-Mail:</label>
+                            <input class="pla" id="email" type="text" name="email" placeholder="Enter your E-mail" required><br>
+                            <span id="emailpart" class="err"></span>
+                            <br>
+                            <label for="Mobile">Mobile:</label>
+                            <input class="pla" id="Mobile" type="text" name="Mobile" placeholder="Enter your Number" required><br>
+                            <span id="mbpart" class="err"></span>
+                            <br>
+							<label for="password">Password:</label>
+                            <input class="pla" id="password" type="password" name="password" placeholder="Enter your password" required><br>
+                            <span id="passwordpart" class="err"></span></br>
+                            <button class="button" id="button">Sign Up </button>
+                        </form>
+                    </div>
+                    
+                    
+                    </div>
+               
+            
+       
+    </div>
+    <script>
+      
+      var btn = document.getElementById("button");
+      
+      var PassPhrase = "rgukt"
+      var Bits = 512;
+      //decryption
+      var MattsRSAkey = cryptico.generateRSAKey(PassPhrase, Bits);
+      var MattsPublicKeyString = cryptico.publicKeyString(MattsRSAkey);
+
+      function validation(){
+        var Name = document.getElementById("Name").value;
+        var email = document.getElementById("email").value;
+        var mobile = document.getElementById("Mobile").value;
+        var password = document.getElementById("password").value;
+
+        console.log(Name);
+        if (Name == "") {
+        document.getElementById("Namepart").innerHTML = "**please fill the username";
+        return false;
+        }
+        if ((Name.length <= 2) || (Name.length > 20)) {
+          document.getElementById("Namepart").innerHTML = "** user length must be between 2 and 20";
+          return false;
+        }
+        if (!isNaN(Name)) {
+          document.getElementById("Namepart").innerHTML = "**only character are allowed ";
+          return false;
+        }
+
+        if (email == "") {
+          document.getElementById("emailpart").innerHTML = "**plese fill the email";
+          return false;
+        }
+        if (email.indexOf('@') <= 0) {
+          document.getElementById("emailpart").innerHTML = "**Invalid Position";
+          return false;
+        }
+        if (mobile == "") {
+          document.getElementById("mbpart").innerHTML = "**plese fill the Mobile number";
+          return false;
+        }
+        if (isNaN(mobile)) {
+          document.getElementById("mbpart").innerHTML = "**user must write digits only not characters";
+          return false;
+        }
+        console.log(mobile.length)
+        if (mobile.length!= 10) {
+          document.getElementById("mbpart").innerHTML = "**user must enter 10 digits only";
+          return false;
+        }
+        
+        return true;
+      }
+      
+      var firebaseConfig = {
+          apiKey: "AIzaSyAfzxDjfEFWY5hwIlFGAl9CWfM-IDfmkJI",
+          authDomain: "qrcode-13d1c.firebaseapp.com",
+          projectId: "qrcode-13d1c",
+          storageBucket: "qrcode-13d1c.appspot.com",
+          messagingSenderId: "22874747566",
+          appId: "1:22874747566:web:617516495780fb8d64733f"
+        };
+        // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      async function senddata(){
+        var Namein = document.getElementById("Name").value;
+        var emailin = document.getElementById("email").value;
+        var mobilein = document.getElementById("Mobile").value;
+        var passwordin = document.getElementById("password").value;
+        var password=passwordin
+        var encrypted = cryptico.encrypt(password,MattsPublicKeyString)
+        var cipherText=encrypted.cipher
+        var decrypted = cryptico.decrypt(cipherText,MattsRSAkey)
+        var plainText=decrypted.plaintext
+        console.log(plainText)
+        console.log(cipherText)
+        await firebase.database().ref('Login/' + Namein).set({
+          name: Namein,
+          password: cipherText,
+          email: emailin,
+          mobilenum: mobilein
+        });
+      };
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if(validation()){
+          console.log("okay")
+          senddata().then(()=>{
+            var Name = document.getElementById("Name").value;
+            var password = document.getElementById("password").value;
+            localStorage.setItem("name", Name);
+            localStorage.setItem("password", cryptico.encrypt(password, MattsPublicKeyString).cipher);
+            window.location.pathname = "qr.html";
+          })
+        }
+      });
+    </script>
+    </div>
+    <footer class="bg-light text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color:indigo;color: white;">
+        © 2021 Copyright:
+        <a class="text-light" href="index.html">QR-Scanner</a>
+        
+      </div>
+      <!-- Copyright -->
+    </footer> 
+</body>
+
+</html>

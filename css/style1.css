@@ -1,0 +1,90 @@
+.navbar-brand{
+    font-family: "Audiowide";
+    font-weight: 700px;
+    color:yellow!important;
+}
+
+.nav-link{
+    color:white !important;
+    font-weight: 700;
+}
+.nav-link:hover{
+    background-color:rgb(190, 190, 35);
+    border-radius: 20px;
+}
+
+.mr{
+	margin: 55px;
+}
+
+.mr{
+    margin: 55px;
+}
+
+.card {
+       background-color:#d67cd0 ;
+       margin-top:50px;
+        background: no-repeat;
+        background-size: cover;
+        
+        width:410px !important;
+        padding-left: 20px !important;
+        
+		
+        
+    }
+    
+    .h1 {
+        font-size: 50px;
+        font-family: "Roboto";
+        font-weight:bold !important;
+        color: black;
+    }
+    
+    .matter {
+        font-size:22px;
+        font-family: "Bree Serif";
+        color: black;
+        text-align: right;
+        margin-right: 20px;
+
+
+    }
+    
+    .button {
+        height: 45px;
+		width:90px;
+        padding:5px;
+        border-radius: 10px;
+        border-width: 0px;
+        background-color:#000080;
+        color: white;
+		font-weight:bold;
+		font-size:20px;
+        display:block;
+        margin:0 auto;
+    }
+    
+    .pla {
+        height: 40px;
+        width: 250px;
+        border-radius: 7px;
+        border-width: 0px;
+        font-size: 20px;
+        
+    }
+    
+    .err {
+        font-size:15px;
+        font-family: "Bree Serif";
+        color: black;
+    }
+    
+    
+
+    .navbar-brand{
+        font-style: italic;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: 700px;
+    }
+    

@@ -1,0 +1,128 @@
+.navbar-brand{
+    font-family: "Audiowide";
+    font-weight: 700px;
+    color:yellow!important;
+}
+
+.nav-link{
+    color:white !important;
+    font-weight: 700;
+}
+.nav-link:hover{
+    background-color:yellowgreen;
+    border-radius: 20px;
+}
+
+
+.carousel-item{
+    height:100vh;
+    min-height:  300px;
+    -webkit-background-size:no-repeat scroll center scroll;
+   background: no-repeat;
+   background-size: cover;
+  background-color: blanchedalmond;
+    
+}
+
+.carousel-caption{
+   
+   position:absolute;
+  
+   bottom:180px;
+   padding-left:100px;
+   padding-right:100px;
+    
+}
+.carousel-caption h4{
+    font-size: 100px;
+    font-family:'Times New Roman';
+    color:whitesmoke!important;
+    font-weight:700;
+    
+    
+    
+}
+
+.carousel-caption p{
+    font-size: 18px;
+    color:white;
+    top:2rem;
+   
+   
+}
+
+
+.overlay-image
+{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right:0;
+    top:0;
+    background-position:center;
+    background-size: cover;
+    background-color: black;
+
+}
+.container{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.container h4{
+	font-size: 80px;
+	color:black!important;
+    	margin:0 0 10px;
+	opacity: 0;
+}
+.container p{
+	font-size: 30px;
+	margin:0;
+	color: black!important;;
+	opacity:0;
+}
+.col{
+    position: absolute;
+    
+}
+
+
+.loginbody{
+    height:100vh;
+    min-height:  300px;
+   background: no-repeat;
+   background-size: cover;
+   opacity: 0.7;
+   background-color: black;
+
+}
+
+.container1{
+    border: 8px solid indigo !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: 10px -7px 10px rgba(0,0,0,0.3) !important;
+}
+
+.qrcodebutton{
+
+    border-radius: 17px;
+    border:3px solid indigo;
+    background: rgb(242, 236, 247);
+    
+
+}
+
+.qrcodebutton:hover{
+    background: rgb(208, 181, 228);
+    
+}
+
+.qrcodeimg{
+    border:3px solid indigo;
+}
+
+
+

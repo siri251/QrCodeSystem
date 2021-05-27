@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Qr-scanner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="verify.js"></script>
+    <link rel="stylesheet" href="./css/snackbar.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top  " style="background-color:indigo;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="img/navbrand1.png"width="30" width="30">
+          QR-Scanner
+        </a>
+        
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link " href="contact.html" >Contact</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav  flex-row ml-md-auto d-none d-md-flex" >
+            <li class="nav-item">
+              <a class="nav-link " id="signout">Sign-Out</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </br>
+
+    <div class="loginbody" style="background-image:url('./img/mac.png') ;">
+      <div class="container">
+        <div class="row align-items-center">
+        </br></br>
+            <h3 class= "h"style="font-weight: 800;font-size:50px; color:whitesmoke;font-family: sans-serif;">
+              <u>Your QR-code</u><h3></br>
+                <div class=col-md-12>
+                  <!-- <div class="qrcode"> -->
+                    <a target="_blank" class="download" href="" download="qr.jpg">
+                      <img class="qrcodeimg float-centre" src="qrcode2.jpg" alt="qr code image" height="300px" width="300px">
+                    </a>
+                    
+                  <!-- </div> -->
+                </div></br>
+                <button class="qrcodebutton">Click here to get your qr code</button>
+                
+            </div>
+            </div>
+            
+</div>
+  <div id="snackbar">Click on QR to download it</div>
+<script>
+  
+  let pass=""
+  var qrcode=document.querySelector(".qrcodeimg");
+  var qrbtn=document.querySelector(".qrcodebutton");
+  var signoutbtn=document.getElementById("signout");
+
+  
+  var firebaseConfig = {
+      apiKey: "AIzaSyAfzxDjfEFWY5hwIlFGAl9CWfM-IDfmkJI",
+      authDomain: "qrcode-13d1c.firebaseapp.com",
+      projectId: "qrcode-13d1c",
+      storageBucket: "qrcode-13d1c.appspot.com",
+      messagingSenderId: "22874747566",
+      appId: "1:22874747566:web:617516495780fb8d64733f"
+  };
+
+    // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+ 
+  async function fetchSAllData() {
+      await firebase.database().ref('Login').once('value', function (snapshot) {
+        snapshot.forEach(
+          function (ChlidSnapshot) {
+            let pass = ChlidSnapshot.val().password;
+
+          }
+
+        )
+
+      })
+
+    }
+
+  
+  function generate() {
+      fetchSAllData();
+      let size = "1000×1000";
+      let data = localStorage.getItem("password");
+      console.log(localStorage.getItem("password"));
+      let URL = "http://api.qrserver.com/v1/create-qr-code/";
+      let url1 = `${URL}?data=${data}&size=${size}`;
+      qrcode.src = url1;
+
+      document.querySelector('.download').href = `${url1}.png`;
+
+      var x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function () { x.className = x.className.replace("show", ""); }, 3700);
+  }
+ 
+  function signout(){
+    if(confirm("do you really want to log out?")){
+      localStorage.removeItem("name");
+      localStorage.removeItem("password");
+      window.location.pathname = "index.html";
+
+    }
+  }
+
+ 
+  qrbtn.addEventListener("click", generate);
+  signoutbtn.addEventListener("click",signout);
+
+
+</script>
+
+
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:indigo;color: white;">
+    © 2021 Copyright:
+    <a class="text-light" href="index.html">QR-Scanner</a>
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
+</html>
